@@ -9,6 +9,9 @@ class Aplicacion:
         self.root.title("Gestor de Tareas")
         self.gestor = GestorTareas()
 
+        #style boton
+        self.button_style = {"width": 20, "height": 2, "bg": "#4CAF50", "fg": "white", "font": ("Arial", 12)}
+
         # Crear encabezado de la lista
         self.label_encabezado = tk.Label(root, text="Título - Estado - Prioridad", font=("Arial", 10, "bold"))
         self.label_encabezado.pack()
@@ -18,23 +21,25 @@ class Aplicacion:
         self.lista_tareas.pack(pady=20)
 
         # Botones
-        self.btn_agregar = tk.Button(root, text="Agregar Tarea", command=self.agregar_tarea)
+        self.btn_agregar = tk.Button(root, text="Agregar Tarea", command=self.agregar_tarea, **self.button_style)
         self.btn_agregar.pack(pady=5)
 
-        self.btn_eliminar = tk.Button(root, text="Eliminar Tarea", command=self.eliminar_tarea)
+        self.btn_eliminar = tk.Button(root, text="Eliminar Tarea", command=self.eliminar_tarea, **self.button_style)
         self.btn_eliminar.pack(pady=5)
 
-        self.btn_modificar = tk.Button(root, text="Modificar Tarea", command=self.modificar_tarea)
+        self.btn_modificar = tk.Button(root, text="Modificar Tarea", command=self.modificar_tarea, **self.button_style)
         self.btn_modificar.pack(pady=5)
 
-        self.btn_ver_descripcion = tk.Button(root, text="Ver Descripción", command=self.ver_descripcion)
+        self.btn_ver_descripcion = tk.Button(root, text="Ver Descripción", command=self.ver_descripcion, **self.button_style)
         self.btn_ver_descripcion.pack(pady=5)
 
-        self.btn_exportar_csv = tk.Button(root, text="Exportar a CSV", command=self.exportar_csv)
+        self.btn_exportar_csv = tk.Button(root, text="Exportar a CSV", command=self.exportar_csv, **self.button_style)
         self.btn_exportar_csv.pack(pady=5)
 
-        self.btn_importar_csv = tk.Button(root, text="Importar desde CSV", command=self.importar_csv)
+        self.btn_importar_csv = tk.Button(root, text="Importar desde CSV", command=self.importar_csv, **self.button_style)
         self.btn_importar_csv.pack(pady=5)
+
+    #metodos
 
     def actualizar_lista(self):
         self.lista_tareas.delete(0, tk.END)
